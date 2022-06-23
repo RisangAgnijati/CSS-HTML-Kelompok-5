@@ -32,21 +32,52 @@
     <div class="column">
       <img src="https://img.freepik.com/free-vector/flat-people-group-asking-questions_23-2148927481.jpg?size=626&ext=jpg&ga=GA1.2.79651743.1639996061" style="width:100%">
     </div>
+
     <div class="column">
       <form action="/action_page.php">
-        <label for="fname">Nama Lengkap</label>
-        <input type="text" id="fname" name="namalengkap" placeholder="Your name..">
-        <label for="daerah">Daerah</label>
-        <select id="daerah" name="Daerah kamu">
+        <label for="fname">Nama Lengkap</label><br />
+        <input name="namalengkap" type="text" id="fname" placeholder="Your name.." >
+        <br />
+
+        <label for="daerah">Daerah</label><br />
+        <select id="daerah" name="Daerah">
           <option value="Jawa Tengah">Jawa Tengah</option>
           <option value="Jawa Timur">Jawa Timur</option>
           <option value="Jawa Barat">Jawa Barat</option>
           <option value="Sumatra">Sumatra</option>
         </select>
-        <label for="pesan">Pesan</label>
-        <textarea id="pesan" name="subject" placeholder="Ketik Sesuatu.." style="height:170px"></textarea>
-        <a href="index.html" class="tbl-cancel" >Cancel</a>
-        <a href="index.html" class="tbl-kirim" >Kirim</a>
+        <br />
+
+        <label for="pesan">Pesan</label><br />
+        <textarea name="subject" type="text" id="pesan"  placeholder="Ketik Sesuatu.." style="height:170px"></textarea>
+        <br />
+
+        <input type="button" value="Cancel" class="tbl-cancel">
+        <input type="button" value="Kirim" class="tbl-kirim" onclick ="hasil()">
+
+        <br>
+        <p id="hasil-fname"></p>
+        <p id="hasil-daerah"></p>
+        <p id="hasil-pesan"></p>
+        <br>
+
+        <script>
+          function hasil() {
+            var fname = document.getElementById("fname").value ;
+            var daerah = document.getElementById("daerah").value ;
+            var pesan = document.getElementById("pesan").value ;
+
+            if(fname != "" && daerah !="" && pesan !="") {
+              document.getElementById("hasil-fname").innerHTML = fname
+              document.getElementById("hasil-daerah").innerHTML = daerah
+              document.getElementById("hasil-pesan").innerHTML = pesan 
+              return true;
+            }else{
+              alert('Isi data dengan lengkap')
+            }
+          }
+        </script>
+        
       </form>
     </div>
   </div>
